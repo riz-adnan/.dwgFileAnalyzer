@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <h1>Result</h1>
+    <table border="1">
+        <tr>
+            <th>Layer</th>
+            <th>Area (square units)</th>
+            <th>Perimeter (units)</th>
+            <th>Lines</th>
+        </tr>
+        {% for layer_data in layer_info %}
+        <tr>
+            <td>{{ layer_data.layer }}</td>
+            <td>{{ layer_data.area|round(2) }}</td>
+            <td>{{ layer_data.perimeter|round(2) }}</td>
+            <td>
+                <ul>
+                    {% for line in layer_data.lines %}
+                    <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
